@@ -8,15 +8,23 @@ import com.todolist.app.todolist.mapperapp.Event;
 import com.todolist.app.todolist.todolistapp.TodolistDto;
 import com.todolist.app.todolist.todolistapp.model.TodoList;
 import com.todolist.app.todolist.todolistapp.repository.TodolistRepository;
+import com.todolist.app.todolist.valueproperties.ValueProperties;
+import jdk.swing.interop.SwingInterOpUtils;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.todolist.app.todolist.valueproperties.ValueProperties.KEY_APP2_USERNAME;
+
 @SpringBootTest
 class TodolistApplicationTests {
+
+    @Value(ValueProperties.KEY_APP2_USERNAME)
+    String username ;
 
 
     @Autowired
@@ -92,6 +100,14 @@ class TodolistApplicationTests {
 //        todoLists.add(todolist);
 //        todolistRepository.saveAll(todoLists);
         System.out.println(todoLists);
+    }
+
+    @Test
+    void propertiesValue(){
+
+
+
+        System.out.println(username);
     }
 
 
